@@ -398,7 +398,7 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-current/10 text-center text-xs opacity-40">
-                © 2024 {config.heroTitle}. All rights reserved.
+                © 2026 {config.heroTitle}. All rights reserved.
             </div>
         </footer>
     );
