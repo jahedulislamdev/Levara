@@ -257,7 +257,7 @@ export const AdminDashboard: React.FC = () => {
                             <h3 className="font-bold mb-4 flex items-center gap-2">
                                 <BarChart size={18} /> Lead Gen Analytics
                             </h3>
-                            <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
+                            <div className="space-y-4 max-h-75 overflow-y-auto pr-2">
                                 {products.map((p) => {
                                     const clicks = analytics[p.id] || 0;
                                     if (clicks === 0) return null;
@@ -266,7 +266,7 @@ export const AdminDashboard: React.FC = () => {
                                             key={p.id}
                                             className="flex justify-between items-center text-sm"
                                         >
-                                            <span className="truncate max-w-[200px]">
+                                            <span className="truncate max-w-50">
                                                 {p.name}
                                             </span>
                                             <span className="font-mono bg-green-500/20 text-green-500 px-2 py-1 rounded">

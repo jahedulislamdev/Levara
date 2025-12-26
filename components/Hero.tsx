@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
     if (!currentSlide) return null;
 
     return (
-        <section className="relative h-[20rem] md:h-[35rem] w-full overflow-hidden bg-black text-white">
+        <section className="relative h-80 md:h-140 w-full overflow-hidden bg-black text-white">
             {/* Slider Container */}
             <div className="absolute inset-0 z-0">
                 <AnimatePresence initial={false} custom={direction}>
@@ -100,7 +100,7 @@ export const Hero: React.FC = () => {
                         className="pointer-events-auto h-full w-full grid place-content-center bg-black/20 px-3"
                     >
                         <motion.h1
-                            className="text-3xl md:text-5xl md:text-8xl font-extrabold tracking-tighter mb-4 leading-tight drop-shadow-lg"
+                            className="text-3xl md:text-5xl lg:text-8xl font-extrabold tracking-tighter mb-4 leading-tight drop-shadow-lg"
                             style={{ fontFamily: "var(--font-syne)" }}
                         >
                             {currentSlide.title}
@@ -135,7 +135,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Navigation Controls */}
-            <div className="hidden absolute bottom-10 right-6 md:right-20 z-30 flex items-center gap-4">
+            <div className="hidden absolute bottom-10 right-6 md:right-20 z-30 md:flex items-center gap-4">
                 <button
                     onClick={() => paginate(-1)}
                     className="p-3 rounded-full border border-white/30 bg-black/20 backdrop-blur-md hover:bg-white hover:text-black transition-all"

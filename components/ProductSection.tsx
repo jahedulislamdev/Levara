@@ -33,9 +33,7 @@ export const ProductCard: React.FC<{
             onClick={handleCardClick}
             className={clsx(
                 "group relative overflow-hidden rounded-sm cursor-pointer",
-                featured
-                    ? "col-span-1 md:col-span-2 aspect-[4/3]"
-                    : "aspect-[3/4]",
+                featured ? "col-span-1 md:col-span-2 aspect-4/3" : "aspect-3/4",
                 "bg-neutral-200", // Placeholder bg color while loading
             )}
         >
@@ -154,7 +152,7 @@ export const ProductGrid = () => {
                             className="px-8 py-4 bg-transparent border border-neutral-200 hover:border-black transition-all duration-500 text-xs font-bold uppercase tracking-widest flex items-center gap-4 group"
                         >
                             Browse Full Drop
-                            <div className="w-6 h-[1px] bg-neutral-300 group-hover:w-10 group-hover:bg-black transition-all duration-500" />
+                            <div className="w-6 h-px bg-neutral-300 group-hover:w-10 group-hover:bg-black transition-all duration-500" />
                         </a>
                     </div>
                 </div>
@@ -215,7 +213,7 @@ export const Marquee = () => {
                     ].map((product, idx) => (
                         <div
                             key={`${product.id}-${idx}`}
-                            className="w-[280px] flex-shrink-0"
+                            className="w-70 shrink-0"
                         >
                             <ProductCard product={product} />
                         </div>

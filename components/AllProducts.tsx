@@ -56,7 +56,7 @@ export const AllProducts: React.FC = () => {
                     {/* Search / Filter Placeholder */}
                     <div
                         className={clsx(
-                            "flex items-center px-4 py-2 rounded-full border w-full md:w-auto min-w-[300px]",
+                            "flex items-center px-4 py-2 rounded-full border w-full md:w-auto min-w-75",
                             theme === "dark"
                                 ? "bg-white/5 border-white/10"
                                 : "bg-neutral-100 border-neutral-200",
