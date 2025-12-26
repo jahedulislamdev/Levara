@@ -321,6 +321,9 @@ export const Footer = () => {
                     >
                         {config.heroTitle}
                     </h3>
+                    <p className="opacity-90 leading-relaxed">
+                        Elevate Your Style Everyday
+                    </p>
                     <p className="opacity-60 text-sm leading-relaxed">
                         {config.footerText}
                     </p>

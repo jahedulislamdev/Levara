@@ -87,7 +87,7 @@ export const ProductGrid = () => {
     const featured = products.filter((p) => p.isFeatured);
 
     return (
-        <section id="featured" className="py-24 px-6 max-w-7xl mx-auto">
+        <section id="featured" className="py-10 px-6 max-w-7xl mx-auto">
             <div className="w-full flex flex-col md:flex-row items-baseline justify-between py-12 border-b border-neutral-100 mb-16">
                 {/* The Lead Section */}
                 <div className="flex flex-col gap-2">

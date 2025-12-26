@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Content Layer */}
-            <div className="absolute inset-0 z-20 flex flex-col justify-center items-start  max-w-7xl mx-auto pointer-events-none">
+            <div className="absolute inset-0 z-20 flex flex-col justify-center items-start max-w-7xl mx-auto pointer-events-none">
                 {/* Animate text separately when slide changes */}
                 <AnimatePresence mode="wait">
                     <motion.div
@@ -97,39 +97,38 @@ export const Hero: React.FC = () => {
                             delay: 0.2,
                             ease: "easeOut",
                         }}
-                        className="pointer-events-auto h-full w-full grid place-content-center bg-black/20 px-3"
+                        className="pointer-events-auto h-full w-full flex justify-start items-center bg-black/20 px-3"
                     >
-                        <motion.h1
-                            className="text-3xl md:text-5xl lg:text-8xl font-extrabold tracking-tighter mb-4 leading-tight drop-shadow-lg"
-                            style={{ fontFamily: "var(--font-syne)" }}
-                        >
-                            {currentSlide.title}
-                        </motion.h1>
-                        <motion.p
-                            className="text-sm md:text-2xl font-light tracking-wide opacity-90 mb-8 max-w-lg drop-shadow-md"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            {currentSlide.subtitle}
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                        >
-                            <Link
-                                to="/products"
-                                className="inline-flex items-center gap-2 bg-white text-black p-2 md:px-8 md:py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-neutral-200 hover:scale-105 transition-all shadow-lg group"
+                        <div>
+                            <motion.h1 className=" text-3xl md:text-6xl font-extrabold tracking-tighter mb-4 leading-tight drop-shadow-lg">
+                                {currentSlide.title}
+                            </motion.h1>
+                            <motion.p
+                                className="text-sm md:text-2xl font-light tracking-wide opacity-90 mb-8 max-w-lg drop-shadow-md"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.4 }}
                             >
-                                Explore Collection
-                                <ArrowRight
-                                    size={16}
-                                    className="group-hover:translate-x-1 transition-transform"
-                                />
-                            </Link>
-                        </motion.div>
+                                {currentSlide.subtitle}
+                            </motion.p>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.6 }}
+                            >
+                                <Link
+                                    to="/products"
+                                    className="inline-flex items-center gap-2 bg-white text-black p-2 md:px-8 md:py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-neutral-200 hover:scale-105 transition-all shadow-lg group"
+                                >
+                                    Explore Collection
+                                    <ArrowRight
+                                        size={16}
+                                        className="group-hover:translate-x-1 transition-transform"
+                                    />
+                                </Link>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 </AnimatePresence>
             </div>

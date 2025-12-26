@@ -5,27 +5,34 @@ import { AppState, Product, Theme, WishlistItem, AppConfig } from "../types";
 const INITIAL_CONFIG: AppConfig = {
     heroTitle: "LEVARA",
     heroSlides: [
-        {
-            id: "1",
-            image: "https://images.unsplash.com/photo-1529139574466-a302d2d3f524?q=80&w=2000&auto=format&fit=crop",
-            title: "Vibrant Aesthetics",
-            subtitle: "Express yourself with bold colors and modern cuts.",
-        },
+        // {
+        //     id: "1",
+        //     image: "https://i.postimg.cc/0yTYs43y/Gemini-Generated-Image-86bgtj86bgtj86bg.png",
+        //     title: "Sartorial Vividness",
+        //     subtitle: "Unapologetic hues defined by master tailoring.",
+        // },
         {
             id: "2",
-            image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2000&auto=format&fit=crop",
-            title: "Summer Ethereal",
-            subtitle: "Architecture for the body. Designed for the moment.",
+            image: "https://i.postimg.cc/g2KP39Wy/bg_1.jpg",
+            title: "Ethereal Silhouette",
+            subtitle: "Fluid drapes designed for the golden hour.",
         },
         {
             id: "3",
-            image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2000&auto=format&fit=crop",
-            title: "Urban Minimalism",
-            subtitle: "Clean lines for the chaotic city.",
+            image: "https://i.postimg.cc/cLcNfqSR/bg_2.jpg",
+            title: "Metropolitan Essential",
+            subtitle: "Precision cuts engineered for the modern pace.",
+        },
+        {
+            id: "4",
+            image: "https://i.postimg.cc/t4zHF0jh/bg_3.jpg",
+            title: "Quiet Authority",
+            subtitle: "Refined textures that speak without shouting.",
         },
     ],
+
     footerText:
-        "Modern minimalist apparel designed for the contemporary individual. Crafted with purpose.",
+        "Elevated essentials for the discerning modern wardobe. We bridge the gap between avant-garde design and daily utility, delivering garments that are as purposeful as they are permanent. This is minimalism, refined",
     whatsappNumber: "+8801560057694",
 };
 
