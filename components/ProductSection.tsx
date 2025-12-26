@@ -71,7 +71,7 @@ export const ProductCard: React.FC<{
                 >
                     {product.name}
                 </h3>
-                <p className="text-white/80 text-sm mb-4">${product.price}</p>
+                <p className="text-white/80 text-sm mb-4">৳{product.price}</p>
 
                 <div className="h-0 group-hover:h-auto overflow-hidden transition-all opacity-0 group-hover:opacity-100 flex items-center gap-2">
                     <span className="text-white text-xs border-b border-white pb-0.5">

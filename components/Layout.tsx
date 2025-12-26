@@ -224,7 +224,7 @@ const WishlistSidebar: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                                                 {product.name}
                                             </h4>
                                             <p className="opacity-60 text-xs">
-                                                ${product.price}
+                                                ৳{product.price}
                                             </p>
                                         </div>
                                         <button
