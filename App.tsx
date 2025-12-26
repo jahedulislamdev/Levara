@@ -1,4 +1,5 @@
-import React, { Suspense, useEffect } from "react";
+import React, { useEffect } from "react";
+import "./index.css";
 import {
     HashRouter as Router,
     Routes,

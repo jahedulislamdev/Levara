@@ -108,8 +108,8 @@ export const ProductDetail: React.FC = () => {
                             >
                                 {product.name}
                             </h1>
-                            <p className="text-2xl opacity-90 mb-8 font-light">
-                                ${product.price}
+                            <p className="text-2xl opacity-90 mb-8 font-light font-sans ">
+                                ৳{product.price}
                             </p>
 
                             <div className="prose prose-sm dark:prose-invert opacity-80 mb-10 leading-relaxed">

@@ -447,7 +447,7 @@ export const AdminDashboard: React.FC = () => {
                                                 {p.name}
                                             </h4>
                                             <p className="text-xs opacity-50">
-                                                ${p.price} • {p.category}
+                                                ৳{p.price} • {p.category}
                                             </p>
                                         </div>
                                         <div className="flex gap-2">

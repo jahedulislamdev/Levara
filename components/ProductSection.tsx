@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Heart, MessageCircle, ShoppingBag } from "lucide-react";
+import { Heart, ShoppingBag } from "lucide-react";
 import { useStore } from "../state/store";
 import { Product } from "../types";
 import clsx from "clsx";
@@ -48,7 +48,7 @@ export const ProductCard: React.FC<{
             />
 
             {/* Overlay: Always dark for white text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity" />
 
             {/* Heart Buttons */}
             <button
@@ -97,7 +97,7 @@ export const ProductGrid = () => {
                         <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-neutral-400">
                             Vol. 01
                         </span>
-                        <div className="w-8 h-[1px] bg-neutral-200" />
+                        <div className="w-8 h-px bg-neutral-200" />
                     </div>
 
                     <h2
@@ -110,7 +110,7 @@ export const ProductGrid = () => {
 
                 {/* The Balance Section */}
                 <div className="mt-6 md:mt-0 flex flex-col md:items-end text-left md:text-right gap-3">
-                    <p className="max-w-[260px] text-xs md:text-sm text-neutral-500 leading-relaxed uppercase tracking-wider">
+                    <p className="max-w-65 text-xs md:text-sm text-neutral-500 leading-relaxed uppercase tracking-wider">
                         Architectural silhouettes for the modern human form.
                     </p>
 
