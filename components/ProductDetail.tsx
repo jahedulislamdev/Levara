@@ -3,17 +3,29 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useStore } from "../state/store";
 import { motion } from "framer-motion";
 import { Heart, ArrowLeft, MessageCircle, Check } from "lucide-react";
-import clsx from "clsx";
 import { Layout } from "./Layout";
+import clsx from "clsx";
 
+// colors available for products
+const colors = [
+    { name: "White", value: "White", class: "bg-white border" },
+    { name: "Black", value: "Black", class: "bg-black" },
+    { name: "Green", value: "Green", class: "bg-green-600" },
+    { name: "Chocolate", value: "Chocolate", class: "bg-amber-800" },
+    { name: "Grey", value: "Grey", class: "bg-gray-400" },
+    { name: "Maroon", value: "Maroon", class: "bg-red-800" },
+    { name: "Blue", value: "Blue", class: "bg-blue-600" },
+];
 export const ProductDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const { products, toggleWishlist, wishlist, trackClick, theme, config } =
         useStore();
+    console.log(products);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
+    const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
-    const product = products.find((p) => p.id === id);
+    const product = products?.find((p) => p.id === id);
     const isLiked = product
         ? wishlist.some((item) => item.productId === product.id)
         : false;
@@ -36,8 +48,9 @@ export const ProductDetail: React.FC = () => {
     const handleInquiry = () => {
         trackClick(product.id);
         const sizeText = selectedSize ? ` in size ${selectedSize}` : "";
+        const colorText = selectedColor ? ` in color ${selectedColor}` : "";
         const number = config.whatsappNumber;
-        const text = `Hi ${config.heroTitle}! I am interested in purchasing the ${product.name}${sizeText}. ${window.location.href}`;
+        const text = `Hi ${config.heroTitle}! I am interested in purchasing the ${product.name}${sizeText}${colorText}. ${window.location.href}`;
         window.open(
             `https://wa.me/${number}?text=${encodeURIComponent(text)}`,
             "_blank",
@@ -144,6 +157,31 @@ export const ProductDetail: React.FC = () => {
                                         >
                                             {size}
                                         </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Color Selector */}
+                            <div className="mb-10">
+                                <h4 className="text-xs font-bold uppercase tracking-wider mb-4 opacity-70">
+                                    Select Color
+                                </h4>
+                                <div className="flex gap-3 flex-wrap">
+                                    {colors.map((color) => (
+                                        <button
+                                            key={color.value}
+                                            title={color.name}
+                                            onClick={() =>
+                                                setSelectedColor(color.value)
+                                            }
+                                            className={clsx(
+                                                "w-10 h-10 rounded-full border-2 transition-all",
+                                                color.class,
+                                                selectedColor === color.value
+                                                    ? "ring-2 ring-offset-2 ring-black dark:ring-white scale-110"
+                                                    : "opacity-60 hover:opacity-100",
+                                            )}
+                                        />
                                     ))}
                                 </div>
                             </div>

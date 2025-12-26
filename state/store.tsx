@@ -2,18 +2,6 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { AppState, Product, Theme, WishlistItem, AppConfig } from "../types";
 
 // Load products from local JSON file
-const allProducts = async () => {
-    try {
-        const tryLoad = await fetch("../products.json");
-        if (tryLoad.ok) {
-            const data = await tryLoad.json();
-            return data;
-        }
-    } catch (error) {
-        throw new Error("Failed to load products.json");
-    }
-};
-
 const INITIAL_CONFIG: AppConfig = {
     heroTitle: "LEVARA",
     heroSlides: [
@@ -76,8 +64,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     // Products
     const [products, setProducts] = useState<Product[]>(() => {
         const saved = localStorage.getItem("levara_products");
-        return saved ? JSON.parse(saved) : allProducts() || [];
+        return saved ? JSON.parse(saved) : [];
     });
+    // load products
+    useEffect(() => {
+        const loadProducts = async () => {
+            try {
+                const response = await fetch("../products.json");
+                if (response.ok) {
+                    const data = await response.json();
+                    setProducts(data);
+                }
+            } catch (error) {
+                console.error("Failed to load products.json");
+            }
+        };
+        loadProducts();
+    }, []);
 
     useEffect(() => {
         localStorage.setItem("levara_products", JSON.stringify(products));
