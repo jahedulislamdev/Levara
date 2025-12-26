@@ -3,11 +3,13 @@ import { useStore } from "../state/store";
 import { ProductCard } from "./ProductSection";
 import { Layout } from "./Layout";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
 
 export const AllProducts: React.FC = () => {
     const { products, theme, config } = useStore();
+    const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -36,7 +38,7 @@ export const AllProducts: React.FC = () => {
 
     return (
         <Layout>
-            <div className="pt-16 pb-24 px-6 min-h-screen max-w-7xl mx-auto">
+            <div className="pt-10 pb-24 px-6 min-h-screen max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
@@ -73,7 +75,12 @@ export const AllProducts: React.FC = () => {
                         />
                     </div>
                 </div>
-
+                <button
+                    onClick={() => navigate(-1)}
+                    className="p-3 mb-2 bg-black/20 backdrop-blur-md border border-white/30 rounded-full text-white hover:bg-black/40 transition-all duration-300"
+                >
+                    <ArrowLeft size={20} />
+                </button>
                 {/* Grid */}
                 {currentItems.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, MessageCircle, ShoppingBag } from "lucide-react";
+import { ArrowRight, Heart, MessageCircle, ShoppingBag } from "lucide-react";
 import { useStore } from "../state/store";
 import { Product } from "../types";
 import clsx from "clsx";
@@ -50,21 +50,21 @@ export const ProductCard: React.FC<{
             {/* Overlay: Always dark for white text legibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity" />
 
-            {/* Top Buttons */}
+            {/* Heart Buttons */}
             <button
                 onClick={handleWishlist}
                 className={clsx(
                     "absolute top-4 right-4 p-2 rounded-full backdrop-blur-md transition-all z-10",
                     isLiked
                         ? "bg-rose-500 text-white"
-                        : "bg-white/10 text-white hover:bg-white/20",
+                        : "bg-white/10 text-red-200 hover:bg-white/20",
                 )}
             >
                 <Heart size={18} fill={isLiked ? "currentColor" : "none"} />
             </button>
 
             {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <div className="absolute group-hover:bg-black/30 group-hover:rounded-t-2xl bottom-0 left-0 right-0 p-6 translate-y-3 group-hover:translate-y-0 transition-transform duration-700 ">
                 <h3
                     className="text-lg font-bold text-white mb-1 tracking-wide"
                     style={{ fontFamily: "var(--font-syne)" }}
@@ -87,44 +87,83 @@ export const ProductCard: React.FC<{
 export const ProductGrid = () => {
     const { products } = useStore();
     const featured = products.filter((p) => p.isFeatured);
-    const regular = products.filter((p) => !p.isFeatured && !p.isBestSeller);
 
     return (
         <section id="featured" className="py-24 px-6 max-w-7xl mx-auto">
-            <div className="mb-12 flex items-end justify-between">
-                <div>
+            <div className="w-full flex flex-col md:flex-row items-baseline justify-between py-12 border-b border-neutral-100 mb-16">
+                {/* The Lead Section */}
+                <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-neutral-400">
+                            Vol. 01
+                        </span>
+                        <div className="w-8 h-[1px] bg-neutral-200" />
+                    </div>
+
                     <h2
-                        className="text-3xl md:text-5xl font-bold mb-4"
+                        className="text-5xl md:text-6xl font-bold tracking-tighter"
                         style={{ fontFamily: "var(--font-syne)" }}
                     >
                         The Collection
                     </h2>
-                    <p className="opacity-60 max-w-md">
-                        Timeless aesthetics for the modern wardrobe.
-                    </p>
                 </div>
-                <div className="hidden md:block w-32 h-[1px] bg-current opacity-20 mb-4"></div>
+
+                {/* The Balance Section */}
+                <div className="mt-6 md:mt-0 flex flex-col md:items-end text-left md:text-right gap-3">
+                    <p className="max-w-[260px] text-xs md:text-sm text-neutral-500 leading-relaxed uppercase tracking-wider">
+                        Architectural silhouettes for the modern human form.
+                    </p>
+
+                    {/* Subtle status tag */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-50 rounded-full border border-neutral-100">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-600">
+                            Available Now
+                        </span>
+                    </div>
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-20">
+            {/* featured Products */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 mb-20">
                 {featured.map((product) => (
-                    <ProductCard key={product.id} product={product} featured />
-                ))}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                {regular.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
             </div>
 
-            <div className="flex justify-center mt-12">
-                <a
-                    href="#/products"
-                    className="inline-block border-b border-current pb-1 uppercase text-sm tracking-widest hover:text-rose-500 transition-colors"
-                >
-                    View All Products
-                </a>
+            {/* regular products */}
+            <div className="mb-12 flex items-end justify-between">
+                <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 py-12 border-b border-neutral-100">
+                    {/* Title Section */}
+                    <div className="space-y-1">
+                        <p className="text-[10px] uppercase tracking-[0.4em] text-neutral-400 font-bold">
+                            Season 2025
+                        </p>
+                        <h2
+                            className="text-4xl md:text-5xl font-bold tracking-tighter"
+                            style={{ fontFamily: "var(--font-syne)" }}
+                        >
+                            New Arrivals
+                        </h2>
+                    </div>
+
+                    {/* Minimalist Action */}
+                    <div className="flex md:justify-end items-center h-full">
+                        <a
+                            href="#/products"
+                            className="px-8 py-4 bg-transparent border border-neutral-200 hover:border-black transition-all duration-500 text-xs font-bold uppercase tracking-widest flex items-center gap-4 group"
+                        >
+                            Browse Full Drop
+                            <div className="w-6 h-[1px] bg-neutral-300 group-hover:w-10 group-hover:bg-black transition-all duration-500" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {products.slice(0, 8).map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
             </div>
         </section>
     );

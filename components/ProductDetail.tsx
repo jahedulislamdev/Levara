@@ -61,7 +61,7 @@ export const ProductDetail: React.FC = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             // aspect-[4/5] ensures the box is always 4 units wide by 5 units tall
-                            className="relative w-full aspect-[5/4] rounded-2xl overflow-hidden bg-neutral-100 shadow-lg"
+                            className="relative w-full aspect-[1/1] rounded-2xl overflow-hidden bg-neutral-100 shadow-lg"
                         >
                             <img
                                 src={product.image}
